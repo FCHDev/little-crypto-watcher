@@ -230,6 +230,33 @@
     }
 }
 
+@media (max-width: 320px) {
+    .grid {
+        width: 100%;
+        flex-direction: column;
+    }
+    .mobileConvert {
+        width: 100%;
+    }
+    .currencyTitle {
+        font-size: 25px;
+    }
+    .liveRateItem {
+        margin-bottom: 4vh;
+    }
+
+    .liveRateItem h1 {
+       font-size: 20px;
+    }
+    .liveRateItem span {
+        display: none;
+    }
+
+    .pageTitle {
+        display: none;
+    }
+}
+
 @media (prefers-color-scheme: dark) {
     .card,
     .footer {

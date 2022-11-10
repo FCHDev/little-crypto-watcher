@@ -26,6 +26,9 @@ button {
     border: none;
     border-radius: 7px;
 }
+button:active {
+    background-color: #71adf3;
+}
 
 .error {
     position: relative;
@@ -45,6 +48,16 @@ button {
     }
     .error h1 {
         display: none;
+    }
+    button {
+        padding: 8px 30px;
+        font-size: 1.8em;
+        font-family: "Lobster", sans-serif;
+        cursor: pointer;
+        background-color: #0070f3;
+        color: white;
+        border: none;
+        border-radius: 7px;
     }
 }
 
