@@ -37,7 +37,7 @@ const Contact = () => {
             <div className={styles.mobileConvert}>
 
             <form className={styles.formInvest}>
-                <input type="text" placeholder="Saisissez un montant en €" ref={investRef} onChange={handleInvestCalculator}/>
+                <input type="tel" placeholder="Saisissez un montant en €" ref={investRef} onChange={handleInvestCalculator}/>
             </form>
 
             <div className={styles.currencyTitle}>{bitcoinLogo}
