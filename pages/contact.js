@@ -23,12 +23,13 @@ const Contact = () => {
 
     const handleInvestCalculator = () => {
         const total = investRef.current.value/bitcoin
-        const totalEth = investRef.current.value/eth
-        const totalBinance = investRef.current.value/binance
+        const totalEth = investRef.current.value/(bitcoin / eth)
+        const totalBinance = investRef.current.value/(bitcoin / binance)
         setInvest(total)
         setInvestEth(totalEth)
         setInvestBinance(totalBinance)
     }
+
 
     return (
         <div className={styles.container}>
@@ -36,17 +37,17 @@ const Contact = () => {
             <div className={styles.mobileConvert}>
 
             <form className={styles.formInvest}>
-                <input type="text" placeholder="Saisissez un montant" ref={investRef} onChange={handleInvestCalculator}/>
+                <input type="text" placeholder="Saisissez un montant en €" ref={investRef} onChange={handleInvestCalculator}/>
             </form>
 
             <div className={styles.currencyTitle}>{bitcoinLogo}
-                 <span style={{color:"#21897E"}}>{invest.toFixed(2)}</span> </div>
+                <span style={{color:"#21897E"}}><span style={{fontSize: "18px"}}>x</span>{invest.toFixed(2)}</span> </div>
 
             <div className={styles.currencyTitle}>{binanceLogo}
-                 <span style={{color:"#750D37"}}>{investBinance.toFixed(2)}</span> </div>
+                <span style={{color:"#750D37"}}><span style={{fontSize: "18px"}}>x</span>{investBinance.toFixed(2)}</span> </div>
 
             <div className={styles.currencyTitle}>{ethLogo}
-                 <span style={{color:"#0070f3"}}>{investEth.toFixed(2)}</span> </div>
+                <span style={{color:"#0070f3"}}><span style={{fontSize: "18px"}}>x</span>{investEth.toFixed(2)}</span> </div>
             </div>
 
             <span style={{marginTop: "30px"}}>Cours du Bitcoin : <strong>{bitcoin.toLocaleString("fr-FR")}€</strong></span>
