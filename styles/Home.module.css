@@ -121,6 +121,7 @@
     color:#0070f3;
     font-weight: bold;
     font-family: 'Roboto Mono', monospace;
+    letter-spacing: -1px;
     font-size: 2rem;
     margin: 0;
 }
@@ -128,6 +129,7 @@
     color:#21897E;
     font-weight: bold;
     font-family: 'Roboto Mono', monospace;
+    letter-spacing: -1px;
     font-size: 2rem;
     margin: 0;
 }
