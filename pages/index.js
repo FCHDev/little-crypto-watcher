@@ -16,6 +16,11 @@ export default function Home() {
         FetchFunctionsBTC(url, setBitcoin)
         FetchFunctionsETH(urlCrypto, setEth)
         FetchFunctionsBNB(urlCrypto, setBinance)
+        window.addEventListener("load",function() {
+            setTimeout(function(){
+                window.scrollTo(0, 1);
+            }, 0);
+        });
     }, [])
 
     const handleRefresh = () => {
@@ -24,6 +29,8 @@ export default function Home() {
         FetchFunctionsBNB(urlCrypto, setBinance)
         console.log("Ça refresh ma gueule !")
     }
+
+
 
     return (
         <div className={styles.container}>
