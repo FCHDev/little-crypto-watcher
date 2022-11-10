@@ -1,7 +1,8 @@
 import Head from 'next/head'
 import styles from '../styles/Home.module.css'
-import {useEffect, useState} from "react";
+import React, {useEffect, useState} from "react";
 import {FetchFunctionsBNB, FetchFunctionsBTC, FetchFunctionsETH} from "../functions/fetchFunctions";
+import {bitcoinLogo, ethLogo, binanceLogo} from "../assets/svg/svgLogos"
 
 export default function Home() {
     const url = 'https://blockchain.info/ticker'
@@ -10,18 +11,19 @@ export default function Home() {
     const [eth, setEth] = useState(0)
     const [binance, setBinance] = useState(0)
 
+
     useEffect(() => {
         FetchFunctionsBTC(url, setBitcoin)
         FetchFunctionsETH(urlCrypto, setEth)
         FetchFunctionsBNB(urlCrypto, setBinance)
-        }, [])
+    }, [])
 
-const handleRefresh = () => {
-    FetchFunctionsBTC(url, setBitcoin)
-    FetchFunctionsETH(urlCrypto, setEth)
-    FetchFunctionsBNB(urlCrypto, setBinance)
-    console.log("Ça refresh ma gueule !")
-}
+    const handleRefresh = () => {
+        FetchFunctionsBTC(url, setBitcoin)
+        FetchFunctionsETH(urlCrypto, setEth)
+        FetchFunctionsBNB(urlCrypto, setBinance)
+        console.log("Ça refresh ma gueule !")
+    }
 
     return (
         <div className={styles.container}>
@@ -32,17 +34,24 @@ const handleRefresh = () => {
                 <link rel="apple-touch-icon" href="%PUBLIC_URL%/apple-touch-icon.png"/>
                 <link rel="icon" href="/favicon.ico"/>
             </Head>
+            <h1 className={styles.pageTitle}>Live Rates</h1>
             <div className="main">
-                <h1 style={{marginBottom: "10px"}}>BITCOIN</h1>
-                <h2 className={styles.currencyDisplayBTC}>{bitcoin.toLocaleString("fr-FR")}€</h2>
+                <div className={styles.liveRateItem} style={{backgroundColor: "#DEF7F5"}}>
+                    <h1>{bitcoinLogo} BITCOIN</h1>
+                    <h2 className={styles.currencyDisplayBTC}>{bitcoin.toLocaleString("fr-FR")}€</h2>
+                </div>
 
-                <h1 style={{marginBottom: "10px"}}>BINANCE</h1>
-                <h2 className={styles.currencyDisplay}>{(bitcoin / binance).toLocaleString("fr-FR")}€</h2>
-                <span>(soit {binance.toFixed(2)} BINANCE = 1x BITCOIN)</span>
+                <div className={styles.liveRateItem} style={{backgroundColor: "#FDEDF3"}}>
+                    <h1>{binanceLogo} BINANCE</h1>
+                    <h2 className={styles.currencyDisplayBinance}>{(bitcoin / binance).toLocaleString("fr-FR")}€</h2>
+                    <span>(soit {binance.toFixed(2)} BINANCE = 1x BITCOIN)</span>
+                </div>
 
-                <h1 style={{marginBottom: "10px"}}>ETHEREUM</h1>
-                <h2 className={styles.currencyDisplay}>{(bitcoin / eth).toLocaleString("fr-FR")}€</h2>
-                <span>(soit {eth.toFixed(2)} ETHEREUM = 1x BITCOIN)</span>
+                <div className={styles.liveRateItem} style={{backgroundColor: "#EBF4FF"}}>
+                    <h1>{ethLogo} ETHEREUM</h1>
+                    <h2 className={styles.currencyDisplay}>{(bitcoin / eth).toLocaleString("fr-FR")}€</h2>
+                    <span>(soit {eth.toFixed(2)} ETHEREUM = 1x BITCOIN)</span>
+                </div>
             </div>
             <div className={styles.refresh}>
                 <button onClick={handleRefresh}>Refresh</button>

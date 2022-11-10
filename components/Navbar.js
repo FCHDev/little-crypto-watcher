@@ -7,10 +7,10 @@ const Navbar = () => {
         <div className={styles.navbar}>
             <div className={styles.navbarItems}>
                 <Link href="/">
-                    Accueil
+                    Live Rates
                 </Link>
                 <Link href="/contact">
-                    Contact
+                    Live Converter
                 </Link>
             </div>
         </div>
